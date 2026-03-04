@@ -601,7 +601,7 @@ MAIN
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 11.875rem;
+  padding-top: 1.25rem;
 }
 .main__title {
   font-weight: 700;
@@ -695,6 +695,10 @@ MAIN
   .wrapper {
     background-image: url("../images/webp/bg-desktop.webp");
   }
+  .main__content {
+    padding-top: 7.5rem;
+    padding-bottom: 2.8125rem;
+  }
   .main__btn {
     font-size: 1.125rem;
   }
@@ -739,10 +743,6 @@ MAIN
   .logo {
     width: 5.4375rem;
     height: 5.4375rem;
-  }
-  .main__content {
-    padding-top: 7.5rem;
-    padding-bottom: 2.8125rem;
   }
   .main__title {
     font-size: 2.25rem;

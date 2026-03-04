@@ -58,9 +58,9 @@ MAIN
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding-top: 190px;
+		padding-top: 20px;
 
-		@include lg {
+		@include sm {
 			padding-top: 120px;
 			padding-bottom: 45px;
 		}
