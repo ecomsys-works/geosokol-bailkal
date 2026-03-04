@@ -1,0 +1,79 @@
+
+/* =========================================================
+ CONTAINER CORE CONFIG (меняешь только здесь)
+========================================================= */
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$container-paddings: (
+  xs: 8px,
+  sm: 20px,
+  md: 30px,
+  lg: 50px,
+  xl: 100px,
+  xxl: 200px
+);
+
+
+/* =========================================================
+   ROOT BREAKPOINT VARIABLES
+========================================================= */
+
+:root {
+  @each $name, $width in $breakpoints {
+    --bs-breakpoint-#{$name}: #{$width};
+  }
+}
+
+
+/* =========================================================
+   CONTAINER (mobile first)
+========================================================= */
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding-right: map-get($container-paddings, xs);
+  padding-left: map-get($container-paddings, xs);
+}
+
+
+/* =========================================================
+   CONTAINER RESPONSIVE PADDING
+========================================================= */
+
+@each $name, $width in $breakpoints {
+  @if $width != 0 {
+    @media (min-width: $width) {
+      .container,
+      .container-fluid,
+      .container-xxl,
+      .container-xl,
+      .container-lg,
+      .container-md,
+      .container-sm {
+
+        padding-right: map-get($container-paddings, $name);
+        padding-left: map-get($container-paddings, $name);
+
+      }
+    }
+  }
+}
+

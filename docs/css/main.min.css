@@ -1,0 +1,790 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: url("../fonts/Montserrat-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------
+ROOT
+--------------------------------------------------------------------------------------------------------------------------------*/
+:root {
+  --site-max-width: 90rem;
+  --font-title: "Montserrat", sans-serif;
+  --font-main: "Inter", sans-serif;
+  --white: white;
+  --black: black;
+  --accent: #00EEFF;
+  --bs-transition: all 0.3s ease-in-out;
+}
+
+/* =========================================================
+ CONTAINER CORE CONFIG (меняешь только здесь)
+========================================================= */
+/* =========================================================
+   ROOT BREAKPOINT VARIABLES
+========================================================= */
+:root {
+  --bs-breakpoint-xs: 0;
+  --bs-breakpoint-sm: 36rem;
+  --bs-breakpoint-md: 48rem;
+  --bs-breakpoint-lg: 62rem;
+  --bs-breakpoint-xl: 75rem;
+  --bs-breakpoint-xxl: 87.5rem;
+}
+
+/* =========================================================
+   CONTAINER (mobile first)
+========================================================= */
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* =========================================================
+   CONTAINER RESPONSIVE PADDING
+========================================================= */
+/* =================================================================================================================================
+   MODERN COMBINED RESET
+   - based on modern-normalize + custom tweaks
+   - fully compatible with Safari, Chrome, Firefox
+=================================================================================================================================== */
+/* ---------------------------------------------------------
+   UNIVERSAL
+--------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+*:focus, *:active,
+*::before:focus,
+*::before:active,
+*::after:focus,
+*::after:active {
+  outline: none;
+}
+
+/* ---------------------------------------------------------
+   HTML
+--------------------------------------------------------- */
+html {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+}
+
+/* ---------------------------------------------------------
+   BODY
+--------------------------------------------------------- */
+body {
+  overscroll-behavior: none;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  text-wrap: balance;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-main, system-ui, sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ---------------------------------------------------------
+   TEXT ELEMENTS
+--------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+small {
+  font-size: 80%;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 1em;
+}
+
+/* ---------------------------------------------------------
+   LINKS
+--------------------------------------------------------- */
+a {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus, a:active {
+  outline: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------
+   LISTS
+--------------------------------------------------------- */
+ul,
+li {
+  list-style: none;
+}
+
+/* ---------------------------------------------------------
+   IMAGES
+--------------------------------------------------------- */
+img {
+  vertical-align: top;
+}
+
+/* ---------------------------------------------------------
+   TABLES
+--------------------------------------------------------- */
+table {
+  border-color: currentcolor;
+}
+
+/* ---------------------------------------------------------
+   FORMS / BUTTONS / INPUTS
+--------------------------------------------------------- */
+input,
+button,
+textarea,
+select,
+optgroup {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button; /* iOS / Safari fix */
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background-color: transparent;
+}
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   OTHER INTERACTIVE ELEMENTS
+--------------------------------------------------------- */
+summary {
+  display: list-item;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -0.125rem;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* ---------------------------------------------------------
+   NAV / HEADER / FOOTER / ASIDE
+--------------------------------------------------------- */
+nav,
+header,
+footer,
+aside {
+  display: block;
+}
+
+/* ==========================================================================================================================
+   BASIC ENTRANCE ANIMATIONS
+============================================================================================================================ */
+/* Плавное появление сверху (header reveal) */
+@keyframes show-header {
+  0% {
+    inset-block-start: -100%;
+  }
+  100% {
+    inset-block-start: 0;
+  }
+}
+/* Fade + движение вверх (чуть заметное) */
+@keyframes fade-up-big {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Просто fade */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* Плавное появление снизу */
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Появление слева */
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Появление справа */
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* ===================================================================
+   SCALE ANIMATIONS
+=================================================================== */
+/* Лёгкий pop эффект */
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Сильный pop */
+@keyframes scale-bounce {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* ===================================================================
+   EXIT ANIMATIONS
+=================================================================== */
+/* Fade out */
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Slide вверх и исчезновение */
+@keyframes slide-up-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+/* ===================================================================
+   ROTATION
+=================================================================== */
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+/* Медленная постоянная анимация */
+@keyframes rotation-slow {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ===================================================================
+   MICRO INTERACTIONS
+=================================================================== */
+/* Hover-подъём */
+@keyframes lift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-0.25rem);
+  }
+}
+/* Лёгкое покачивание */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+/* ===================================================================
+   MODERN EFFECTS
+=================================================================== */
+/* Blur reveal (круто для hero текста) */
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+    filter: blur(0.625rem);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+/* Clip reveal (эффект раскрытия) */
+@keyframes clip-reveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------
+MEDIAQUERIES 
+--------------------------------------------------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------------------------------------------------
+Base
+--------------------------------------------------------------------------------------------------------------------------------*/
+html {
+  opacity: 0.5;
+  scroll-behavior: smooth;
+  transition: var(--transition);
+}
+html.loaded {
+  opacity: 1;
+}
+html.lock {
+  touch-action: none;
+  overflow: hidden;
+}
+html.lock [data-lp] {
+  padding-inline-end: var(--bh-scrollbar-width, 1rem);
+}
+html.lock .wrapper {
+  margin-inline-end: var(--bh-scrollbar-width, 1rem);
+}
+
+html,
+body {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.container {
+  min-width: 20rem;
+  max-width: var(--site-max-width);
+}
+
+svg.icon {
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+}
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+
+.ibg {
+  position: relative;
+}
+.ibg img {
+  display: block;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.wrapper {
+  max-inline-size: var(--site-max-width);
+  margin-inline: auto;
+  min-width: 20rem;
+  display: flex;
+  min-block-size: 100%;
+  /** Поменять на clip - если используется в проекте position: sticky */
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.main {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+TYPOGRAPHY
+--------------------------------------------------------------------------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+MAIN
+--------------------------------------------------------------------------------------------------------------------------------*/
+.wrapper {
+  background-image: url("../images/webp/bg-desktop.webp");
+  background-repeat: no-repeat;
+  background-position: center 45%;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header {
+  padding-top: 0.625rem;
+}
+
+.logo {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+.logo:hover img {
+  transform: scale(1.025);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__content {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.625rem;
+}
+.main__title {
+  font-weight: 700;
+  line-height: 110%;
+  text-align: center;
+  color: #fff;
+  font-size: 0.9375rem;
+}
+.main__description {
+  font-weight: 800;
+  line-height: 86%;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 3.125rem;
+  font-size: 1.8125rem;
+}
+.main__white {
+  display: block;
+  color: var(--white);
+  white-space: nowrap;
+}
+.main__accent {
+  display: block;
+  color: var(--accent);
+  white-space: nowrap;
+  line-height: 133%;
+}
+.main__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--second-family);
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 6.25rem;
+  border: 0.0625rem solid #a3ebff;
+  padding-inline: 1.25rem;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+  height: 3.125rem;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 238, 255, 0.3));
+  background-size: 200% 100%;
+  backdrop-filter: blur(0.375rem);
+  -webkit-backdrop-filter: blur(0.375rem);
+  transition: all 0.3s ease;
+}
+.main__btn img {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.main__btn:hover, .main__btn:focus {
+  animation: gradientMove 3s linear infinite;
+  outline: none;
+}
+.main__btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@media (min-width: 400px){
+  .main__description {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 576px){
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+  .main__btn {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 640px){
+  .header {
+    padding-top: 1.0625rem;
+  }
+  .main__title {
+    font-size: 1.75rem;
+  }
+  .main__description {
+    font-size: 3.375rem;
+  }
+}
+
+@media (min-width: 768px){
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    padding-right: 1.875rem;
+    padding-left: 1.875rem;
+  }
+}
+
+@media (min-width: 992px){
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    padding-right: 3.125rem;
+    padding-left: 3.125rem;
+  }
+  .logo {
+    width: 5.4375rem;
+    height: 5.4375rem;
+  }
+  .main__content {
+    padding-top: 0;
+    padding-bottom: 2.8125rem;
+  }
+  .main__title {
+    font-size: 2.25rem;
+  }
+  .main__description {
+    padding-bottom: 4.0625rem;
+  }
+  .main__btn img {
+    width: 1.6875rem;
+    height: 1.6875rem;
+  }
+  .main__btn {
+    height: 3.875rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px){
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    padding-right: 6.25rem;
+    padding-left: 6.25rem;
+  }
+  .main__description {
+    font-size: 5.3125rem;
+  }
+}
+
+@media (min-width: 1400px){
+  .container,
+  .container-fluid,
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    padding-right: 12.5rem;
+    padding-left: 12.5rem;
+  }
+}
+/*# sourceMappingURL=main.min.css.map */

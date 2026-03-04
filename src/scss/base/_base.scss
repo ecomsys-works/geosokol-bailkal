@@ -1,0 +1,78 @@
+/* ------------------------------------------------------------------------------------------------------------------------------
+Base
+--------------------------------------------------------------------------------------------------------------------------------*/
+
+html {
+	opacity: 0.5;
+	scroll-behavior: smooth;
+	transition: var(--transition);
+
+	&.loaded {
+		opacity: 1;
+	}
+	&.lock {
+		touch-action: none;
+		overflow: hidden;
+
+		[data-lp] {
+			padding-inline-end: var(--bh-scrollbar-width, 1rem);
+		}
+		.wrapper {
+			margin-inline-end: var(--bh-scrollbar-width, 1rem);
+		}
+	}
+}
+
+html,
+body {
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.container {
+	min-width: 320px;
+	max-width: var(--site-max-width);
+}
+
+svg.icon {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+.img-responsive {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.ibg {
+	position: relative;
+	img {
+		display: block;
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		object-fit: cover;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+}
+
+.wrapper {
+	max-inline-size: var(--site-max-width);
+	margin-inline: auto;
+	min-width: 320px;
+	display: flex;
+	min-block-size: 100%;
+
+	/** Поменять на clip - если используется в проекте position: sticky */
+	overflow: hidden;
+	flex-direction: column;
+}
+
+.main {
+	position: relative;
+	flex: 1 1 auto;	
+}

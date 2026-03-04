@@ -1,0 +1,237 @@
+/* ==========================================================================================================================
+   BASIC ENTRANCE ANIMATIONS
+============================================================================================================================ */
+
+// fade-up          # появление + движение вверх
+// fade-down        # появление + движение вниз
+// fade-left        # появление слева
+// fade-right       # появление справа
+// scale-in         # плавный scale вход
+// blur-in          # появление через blur
+// clip-reveal      # раскрытие через clip-path
+// fade-out         # плавное исчезновение
+// slide-up-out     # уход вверх + fade
+// lift             # hover подъём элемента
+// wiggle           # лёгкое покачивание
+// rotation         # постоянное вращение
+// rotation-slow    # медленное вращение
+
+
+
+/* Плавное появление сверху (header reveal) */
+@keyframes show-header {
+	0% {
+		inset-block-start: -100%;
+	}
+	100% {
+		inset-block-start: 0;
+	}
+}
+
+
+/* Fade + движение вверх (чуть заметное) */
+@keyframes fade-up-big {
+	0% {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+/* Просто fade */
+@keyframes fade-up {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+/* Плавное появление снизу */
+@keyframes fade-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+/* Появление слева */
+@keyframes fade-left {
+	0% {
+		opacity: 0;
+		transform: translateX(-1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+/* Появление справа */
+@keyframes fade-right {
+	0% {
+		opacity: 0;
+		transform: translateX(1rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+/* ===================================================================
+   SCALE ANIMATIONS
+=================================================================== */
+
+/* Лёгкий pop эффект */
+@keyframes scale-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+/* Сильный pop */
+@keyframes scale-bounce {
+	0% {
+		transform: scale(0.9);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+/* ===================================================================
+   EXIT ANIMATIONS
+=================================================================== */
+
+/* Fade out */
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
+/* Slide вверх и исчезновение */
+@keyframes slide-up-out {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-1rem);
+	}
+}
+
+
+/* ===================================================================
+   ROTATION
+=================================================================== */
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(359deg);
+	}
+}
+
+
+/* Медленная постоянная анимация */
+@keyframes rotation-slow {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+/* ===================================================================
+   MICRO INTERACTIONS
+=================================================================== */
+
+/* Hover-подъём */
+@keyframes lift {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-4px);
+	}
+}
+
+
+/* Лёгкое покачивание */
+@keyframes wiggle {
+	0%, 100% {
+		transform: rotate(0);
+	}
+	25% {
+		transform: rotate(-3deg);
+	}
+	75% {
+		transform: rotate(3deg);
+	}
+}
+
+
+/* ===================================================================
+   MODERN EFFECTS
+=================================================================== */
+
+/* Blur reveal (круто для hero текста) */
+@keyframes blur-in {
+	0% {
+		opacity: 0;
+		filter: blur(10px);
+	}
+	100% {
+		opacity: 1;
+		filter: blur(0);
+	}
+}
+
+
+/* Clip reveal (эффект раскрытия) */
+@keyframes clip-reveal {
+	0% {
+		clip-path: inset(0 0 100% 0);
+	}
+	100% {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+MEDIAQUERIES 
+--------------------------------------------------------------------------------------------------------------------------------*/

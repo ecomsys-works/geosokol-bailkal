@@ -1,0 +1,26 @@
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<script>
+		(function normalizeDPR() {
+			const meta = document.querySelector('meta[name="viewport"]');
+			if (!meta) return;
+
+			const dpr = window.devicePixelRatio || 1;
+
+			// вычисляем scale и округляем до 2 знаков для красоты
+			const scale = +(1 / dpr).toFixed(2);
+
+			meta.setAttribute("content", `width=device-width, initial-scale=${scale}, maximum-scale=1, user-scalable=yes`);
+
+			// Для отладки: покажет, какой scale выставился
+			console.log("normalizeDPR applied:", { dpr, scale });
+		})();
+	</script>
+	<title>@@title</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="css/main.min.css" />
+</head>

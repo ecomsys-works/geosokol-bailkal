@@ -1,0 +1,179 @@
+@use "sass:math";          // Подключение Sass-модуля для математических операций
+@import "functions";       // Подключение кастомных функций (например em())
+
+
+// ==========================================================
+// TEXT
+// ==========================================================
+
+@mixin text-gradient($gradient) {
+	// Делает градиентный текст
+	background: $gradient;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
+// ==========================================================
+// MEDIA QUERIES
+// ==========================================================
+
+@mixin media-mx($value) {
+	// Media max-width (desktop-first)
+	$width: em($value);
+
+	@media (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin media-mn($value) {
+	// Media min-width (mobile-first)
+	// +0.98 чтобы избежать пересечения breakpoint
+	$width: em($value + 0.98);
+
+	@media (min-width: $width) {
+		@content;
+	}
+}
+
+
+// ==========================================================
+// INTERACTION HELPERS
+// ==========================================================
+
+@mixin any-hover() {
+	// Hover только для устройств с поддержкой hover
+	@media (any-hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin not-last() {
+	// Применяется ко всем кроме последнего элемента
+	&:not(:last-child) {
+		@content;
+	}
+}
+
+@mixin not-first() {
+	// Применяется ко всем кроме первого элемента
+	&:not(:first-child) {
+		@content;
+	}
+}
+
+
+// ==========================================================
+// TEXT UTILITIES
+// ==========================================================
+
+// Обрезает текст до заданного количества строк (добавляет ...)
+@mixin line-clamp($value) {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: block-axis;
+	-webkit-line-clamp: $value;
+}
+
+@mixin styled-placeholder(
+	$color: inherit,
+	$fontSize: inherit,
+	$lineHeight: normal
+) {
+	// Кастомизация placeholder
+	&::placeholder {
+		line-height: $lineHeight;
+		font-size: $fontSize;
+		color: $color;
+	}
+}
+
+@mixin hide-placeholder($time: 300, $effect: ease) {
+	// Плавное исчезновение placeholder при фокусе
+	&::placeholder {
+		transition: opacity #{$time}ms $effect;
+	}
+
+	&:focus {
+		&::placeholder {
+			opacity: 0;
+		}
+	}
+}
+
+
+// ==========================================================
+// PSEUDO HELPERS
+// ==========================================================
+
+@mixin pseudo-cell($type, $pos: absolute) {
+	// Быстрое создание ::before / ::after
+	&::#{$type} {
+		content: "";
+		position: $pos;
+		@content;
+	}
+}
+
+
+// ==========================================================
+// MEDIA / RESOLUTION
+// ==========================================================
+
+@mixin mediaBg() {
+	// Retina / high DPI background
+	@media (-webkit-min-device-pixel-ratio: 2),
+	       (min-resolution: 192dpi) {
+		@content;
+	}
+}
+
+
+// ==========================================================
+// BOOTSTRAP BREAKPOINT SHORTCUTS (mobile-first)
+// ==========================================================
+
+@mixin sm () {
+	// ≥576px
+	@media (min-width: 576px) {
+		@content;
+	}
+}
+
+@mixin md () {
+	// ≥768px
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin lg () {
+	// ≥992px
+	@media (min-width: 992px) {
+		@content;
+	}
+}
+
+@mixin xl () {
+	// ≥1200px
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin xxl () {
+	// ≥1400px
+	@media (min-width: 1400px) {
+		@content;
+	}
+}
+
+@mixin xxxl () {
+	// ≥1680px
+	@media (min-width: 1680px) {
+		@content;
+	}
+}
