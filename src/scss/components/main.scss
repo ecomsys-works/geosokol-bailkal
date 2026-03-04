@@ -4,7 +4,7 @@ MAIN
 .wrapper {
 	background-image: url("../../images/webp/mob.webp");
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center top;
 	background-size: cover;
 	min-height: 100vh;
 	@include sm {
@@ -58,7 +58,7 @@ MAIN
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding-top: 10px;
+		padding-top: 190px;
 
 		@include lg {
 			padding-top: 120px;

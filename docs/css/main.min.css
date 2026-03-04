@@ -564,7 +564,7 @@ MAIN
 .wrapper {
   background-image: url("../images/webp/mob.webp");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   min-height: 100vh;
 }
@@ -601,7 +601,7 @@ MAIN
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 0.625rem;
+  padding-top: 11.875rem;
 }
 .main__title {
   font-weight: 700;
