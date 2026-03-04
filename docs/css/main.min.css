@@ -533,8 +533,6 @@ svg.icon {
 }
 
 .wrapper {
-  max-inline-size: var(--site-max-width);
-  margin-inline: auto;
   min-width: 20rem;
   display: flex;
   min-block-size: 100%;
@@ -564,11 +562,11 @@ h6 {
 MAIN
 --------------------------------------------------------------------------------------------------------------------------------*/
 .wrapper {
-  background-image: url("../images/webp/bg-desktop.webp");
+  background-image: url("../images/webp/mob.webp");
   background-repeat: no-repeat;
-  background-position: center 45%;
+  background-position: center;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header {
@@ -607,7 +605,7 @@ MAIN
 }
 .main__title {
   font-weight: 700;
-  line-height: 110%;
+  line-height: 100%;
   text-align: center;
   color: #fff;
   font-size: 0.9375rem;
@@ -629,7 +627,7 @@ MAIN
   display: block;
   color: var(--accent);
   white-space: nowrap;
-  line-height: 133%;
+  line-height: 130%;
 }
 .main__btn {
   display: inline-flex;
@@ -694,6 +692,9 @@ MAIN
     padding-right: 1.25rem;
     padding-left: 1.25rem;
   }
+  .wrapper {
+    background-image: url("../images/webp/bg-desktop.webp");
+  }
   .main__btn {
     font-size: 1.125rem;
   }
@@ -740,7 +741,7 @@ MAIN
     height: 5.4375rem;
   }
   .main__content {
-    padding-top: 0;
+    padding-top: 7.5rem;
     padding-bottom: 2.8125rem;
   }
   .main__title {
@@ -769,6 +770,9 @@ MAIN
   .container-sm {
     padding-right: 6.25rem;
     padding-left: 6.25rem;
+  }
+  .wrapper {
+    background-position: center 46%;
   }
   .main__description {
     font-size: 5.3125rem;
