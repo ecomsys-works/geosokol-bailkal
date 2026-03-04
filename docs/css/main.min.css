@@ -657,8 +657,7 @@ MAIN
   height: 1.375rem;
 }
 .main__btn:hover, .main__btn:focus {
-  animation: gradientMove 3s linear infinite;
-  outline: none;
+  animation: fadeUp 0.9s ease forwards, gradientMove 3s linear infinite;
 }
 .main__btn:active {
   transform: scale(0.95);

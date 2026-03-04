@@ -64,29 +64,29 @@ MAIN
 		justify-content: center;
 		align-items: center;
 
-		padding-top:10px;
+		padding-top: 10px;
 		gap: 40px;
 
 		@media (min-width: 340px) {
 			padding-top: 70px;
 		}
-    @media (min-width: 350px) {
+		@media (min-width: 350px) {
 			padding-top: 90px;
 		}
-    @media (min-width: 360px) {
+		@media (min-width: 360px) {
 			padding-top: 115px;
 		}
 		@media (min-width: 370px) {
 			padding-top: 150px;
 		}
-    	@media (min-width: 380px) {
+		@media (min-width: 380px) {
 			padding-top: 170px;
 		}
-    	@media (min-width: 390px) {
+		@media (min-width: 390px) {
 			padding-top: 185px;
 		}
 		@media (min-width: 405px) {
-					padding-top:185px;
+			padding-top: 185px;
 		}
 
 		@include md {
@@ -104,7 +104,6 @@ MAIN
 		text-align: center;
 		color: #fff;
 		font-size: 15px;
-
 
 		@include md {
 			font-size: 22px;
@@ -126,7 +125,6 @@ MAIN
 			font-size: 36px;
 		}
 
-		
 		@include md {
 			font-size: 60px;
 		}
@@ -187,8 +185,9 @@ MAIN
 
 		&:hover,
 		&:focus {
-			animation: gradientMove 3s linear infinite;
-			outline: none;
+			animation:
+				fadeUp 0.9s ease forwards,
+				gradientMove 3s linear infinite;
 		}
 
 		&:active {
@@ -218,7 +217,6 @@ MAIN
 		background-position: 0% 0%;
 	}
 }
-
 
 /* Базовое состояние (до анимации) */
 .animate-text,
