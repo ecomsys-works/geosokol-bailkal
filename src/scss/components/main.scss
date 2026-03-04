@@ -7,19 +7,20 @@ MAIN
 	background-position: center top;
 	background-size: cover;
 	min-height: 100vh;
-	@include sm {
+	@media (min-width: 405px) {
 		background-image: url("../../images/webp/bg-desktop.webp");
 	}
 	@include xl {
-    	background-position: center 46%; 
-		// aspect-ratio: 144/81;
+		background-position: center 36%;
+
+		// aspect-ratio: 1900/910;
 	}
 }
 
 .header {
 	padding-top: 10px;
 
-	@media (min-width: 640px) {
+	@include sm {
 		padding-top: 17px;
 	}
 }
@@ -29,9 +30,12 @@ MAIN
 	width: 64px;
 	height: 64px;
 
-	@include lg {
+	@include md {
 		width: 87px;
 		height: 87px;
+	}
+	@include xxl {
+		margin-left: 20px;
 	}
 
 	img {
@@ -49,6 +53,7 @@ MAIN
 
 .main {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
@@ -58,11 +63,38 @@ MAIN
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding-top: 10px;
 
-		@include sm {
-			padding-top: 120px;
-			padding-bottom: 45px;
+		padding-top:10px;
+		gap: 40px;
+
+		@media (min-width: 340px) {
+			padding-top: 70px;
+		}
+    @media (min-width: 350px) {
+			padding-top: 90px;
+		}
+    @media (min-width: 360px) {
+			padding-top: 115px;
+		}
+		@media (min-width: 370px) {
+			padding-top: 150px;
+		}
+    	@media (min-width: 380px) {
+			padding-top: 170px;
+		}
+    	@media (min-width: 390px) {
+			padding-top: 185px;
+		}
+		@media (min-width: 405px) {
+					padding-top:185px;
+		}
+
+		@include md {
+			padding-top: 70px;
+			gap: 60px;
+		}
+		@include xl {
+			padding-top: 90px;
 		}
 	}
 
@@ -73,36 +105,34 @@ MAIN
 		color: #fff;
 		font-size: 15px;
 
-		@media (min-width: 640px) {
-			font-size: 28px;
+
+		@include md {
+			font-size: 22px;
 		}
 
-		@include lg {
+		@include xl {
 			font-size: 36px;
 		}
 	}
 
 	&__description {
 		font-weight: 800;
-		line-height: 86%;
+		line-height: 100%;
 		text-align: center;
 		color: #fff;
-		padding-bottom: 50px;
 		font-size: 29px;
 
-		@media (min-width: 400px) {
+		@media (min-width: 390px) {
 			font-size: 36px;
 		}
 
-		@media (min-width: 640px) {
-			font-size: 54px;
+		
+		@include md {
+			font-size: 60px;
 		}
 
-		@include lg {
-			padding-bottom: 65px;
-		}
-
-		@include xl {
+		@include xxl {
+			line-height: 86%;
 			font-size: 85px;
 		}
 	}
@@ -118,10 +148,7 @@ MAIN
 		color: var(--accent);
 		white-space: nowrap;
 
-    @include lg{
-        line-height: 86%;
-    }
-		line-height: 130%;
+		line-height: 122%;
 	}
 
 	&__btn {
@@ -190,4 +217,47 @@ MAIN
 	100% {
 		background-position: 0% 0%;
 	}
+}
+
+
+/* Базовое состояние (до анимации) */
+.animate-text,
+.animate-btn {
+	opacity: 0;
+	transform: translateY(40px);
+}
+
+/* Анимация */
+@keyframes fadeUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Запуск анимации */
+.animate-text {
+	animation: fadeUp 0.9s ease forwards;
+}
+
+.animate-btn {
+	animation: fadeUp 0.9s ease forwards;
+	animation-delay: 0.4s; /* кнопка появляется позже */
+}
+
+.main__description span {
+	display: inline-block;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeUp 0.6s ease forwards;
+}
+
+.main__description span:nth-child(1) {
+	animation-delay: 0.2s;
+}
+.main__description span:nth-child(2) {
+	animation-delay: 0.4s;
+}
+.main__description span:nth-child(3) {
+	animation-delay: 0.6s;
 }

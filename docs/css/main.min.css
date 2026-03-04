@@ -592,6 +592,7 @@ MAIN
 
 .main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -602,6 +603,7 @@ MAIN
   justify-content: center;
   align-items: center;
   padding-top: 0.625rem;
+  gap: 2.5rem;
 }
 .main__title {
   font-weight: 700;
@@ -612,10 +614,9 @@ MAIN
 }
 .main__description {
   font-weight: 800;
-  line-height: 86%;
+  line-height: 100%;
   text-align: center;
   color: #fff;
-  padding-bottom: 3.125rem;
   font-size: 1.8125rem;
 }
 .main__white {
@@ -627,7 +628,7 @@ MAIN
   display: block;
   color: var(--accent);
   white-space: nowrap;
-  line-height: 130%;
+  line-height: 122%;
 }
 .main__btn {
   display: inline-flex;
@@ -674,10 +675,94 @@ MAIN
     background-position: 0% 0%;
   }
 }
+/* Базовое состояние (до анимации) */
+.animate-text,
+.animate-btn {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
 
-@media (min-width: 400px){
+/* Анимация */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Запуск анимации */
+.animate-text {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.animate-btn {
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: 0.4s; /* кнопка появляется позже */
+}
+
+.main__description span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(1.25rem);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.main__description span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.main__description span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.main__description span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@media (min-width: 340px){
+  .main__content {
+    padding-top: 4.375rem;
+  }
+}
+
+@media (min-width: 350px){
+  .main__content {
+    padding-top: 5.625rem;
+  }
+}
+
+@media (min-width: 360px){
+  .main__content {
+    padding-top: 7.1875rem;
+  }
+}
+
+@media (min-width: 370px){
+  .main__content {
+    padding-top: 9.375rem;
+  }
+}
+
+@media (min-width: 380px){
+  .main__content {
+    padding-top: 10.625rem;
+  }
+}
+
+@media (min-width: 390px){
+  .main__content {
+    padding-top: 11.5625rem;
+  }
   .main__description {
     font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 405px){
+  .wrapper {
+    background-image: url("../images/webp/bg-desktop.webp");
+  }
+  .main__content {
+    padding-top: 11.5625rem;
   }
 }
 
@@ -692,27 +777,11 @@ MAIN
     padding-right: 1.25rem;
     padding-left: 1.25rem;
   }
-  .wrapper {
-    background-image: url("../images/webp/bg-desktop.webp");
-  }
-  .main__content {
-    padding-top: 7.5rem;
-    padding-bottom: 2.8125rem;
-  }
-  .main__btn {
-    font-size: 1.125rem;
-  }
-}
-
-@media (min-width: 640px){
   .header {
     padding-top: 1.0625rem;
   }
-  .main__title {
-    font-size: 1.75rem;
-  }
-  .main__description {
-    font-size: 3.375rem;
+  .main__btn {
+    font-size: 1.125rem;
   }
 }
 
@@ -727,6 +796,20 @@ MAIN
     padding-right: 1.875rem;
     padding-left: 1.875rem;
   }
+  .logo {
+    width: 5.4375rem;
+    height: 5.4375rem;
+  }
+  .main__content {
+    padding-top: 4.375rem;
+    gap: 3.75rem;
+  }
+  .main__title {
+    font-size: 1.375rem;
+  }
+  .main__description {
+    font-size: 3.75rem;
+  }
 }
 
 @media (min-width: 992px){
@@ -739,19 +822,6 @@ MAIN
   .container-sm {
     padding-right: 3.125rem;
     padding-left: 3.125rem;
-  }
-  .logo {
-    width: 5.4375rem;
-    height: 5.4375rem;
-  }
-  .main__title {
-    font-size: 2.25rem;
-  }
-  .main__description {
-    padding-bottom: 4.0625rem;
-  }
-  .main__accent {
-    line-height: 86%;
   }
   .main__btn img {
     width: 1.6875rem;
@@ -775,10 +845,13 @@ MAIN
     padding-left: 6.25rem;
   }
   .wrapper {
-    background-position: center 46%;
+    background-position: center 36%;
   }
-  .main__description {
-    font-size: 5.3125rem;
+  .main__content {
+    padding-top: 5.625rem;
+  }
+  .main__title {
+    font-size: 2.25rem;
   }
 }
 
@@ -792,6 +865,13 @@ MAIN
   .container-sm {
     padding-right: 12.5rem;
     padding-left: 12.5rem;
+  }
+  .logo {
+    margin-left: 1.25rem;
+  }
+  .main__description {
+    line-height: 86%;
+    font-size: 5.3125rem;
   }
 }
 /*# sourceMappingURL=main.min.css.map */
