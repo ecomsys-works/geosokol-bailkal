@@ -601,7 +601,7 @@ MAIN
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 1.25rem;
+  padding-top: 0.625rem;
 }
 .main__title {
   font-weight: 700;
@@ -749,6 +749,9 @@ MAIN
   }
   .main__description {
     padding-bottom: 4.0625rem;
+  }
+  .main__accent {
+    line-height: 86%;
   }
   .main__btn img {
     width: 1.6875rem;
